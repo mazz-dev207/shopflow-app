@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "Cană ceramică albă",
+    "category": "Casă & Stil de viață",
+    "price": 45,
+    "image": "images/cana_alba.webp",
+    "description": "Cană minimalistă din ceramică albă cu finisaj ușor lucios și mâner ergonomic, ideală pentru cafea sau ceai."
+  },
+  {
+    "id": 2,
+    "name": "Căști Wireless Go",
+    "category": "Accesorii",
+    "price": 180,
+    "image": "images/casti_wireless.webp",
+    "description": "Căști audio over-ear fără fir, de culoare negru mat, cu perne moi pentru confort sporit și autonomie extinsă."
+  },
+  {
+    "id": 3,
+    "name": "Lampă de birou minimalistă",
+    "category": "Casă & Stil de viață",
+    "price": 95,
+    "image": "images/lampa.webp",
+    "description": "Lampă LED modernă pentru birou, cu braț subțire din metal mat și lumină caldă, potrivită pentru studiu sau lucru."
+  },
+  {
+    "id": 4,
+    "name": "Rucsac de excursie Urban Explore",
+    "category": "Accesorii",
+    "price": 145,
+    "image": "images/ruscar_excursie.webp",
+    "description": "Rucsac rezistent din pânză kaki-oliv cu detalii din piele ecologică maro, buzunare frontale și închidere cu cataramă."
+  },
+  {
+    "id": 5,
+    "name": "Sticlă Termos Eco",
+    "category": "Casă & Stil de viață",
+    "price": 65,
+    "image": "images/termostat.webp",
+    "description": "Termos reutilizabil din oțel inoxidabil cu perete dublu și capac etanș, menține băuturile calde sau reci timp îndelungat."
+  }
+]
