@@ -1,18 +1,19 @@
-/* Reset CSS universal corect */
+/* Reset CSS */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+:root {
+  --container-width: 1200px;
+  --sidebar-width: 220px;
+  --blue: #1d64d8;
+  --navy: #1b2a4a;
+}
+
 body {
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   background-color: #f4f6f9;
   color: #0f172a;
 }
@@ -24,14 +25,14 @@ header {
   flex-direction: column;
 }
 
-/* Rândul 1: Nav Bar Superior */
+/* Rândul 1: navbar superior */
 .top-nav {
   width: 100%;
   padding: 12px 20px;
 }
 
 .nav-container {
-  max-width: 1200px;
+  max-width: var(--container-width);
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -39,11 +40,11 @@ header {
   gap: 20px;
 }
 
-/* Logo restrâns corect */
 .logo {
   display: flex;
   align-items: center;
   width: 180px;
+  flex-shrink: 0;
   text-decoration: none;
 }
 
@@ -52,31 +53,34 @@ header {
   height: auto;
 }
 
-/* Search Bar flexibil */
 .search-bar {
   border: 1px solid #cbd5e1;
   display: flex;
   align-items: center;
   padding: 8px 16px;
   flex: 1;
+  min-width: 0;
   max-width: 550px;
   justify-content: space-between;
   border-radius: 50px;
-  background-color: #ffffff;
+  background-color: white;
+}
+
+.search-bar:focus-within {
+  border-color: var(--blue);
 }
 
 .search-bar input {
   outline: none;
   border: none;
   width: 100%;
+  min-width: 0;
   padding-right: 10px;
   font-size: 14px;
   background: transparent;
 }
 
-.search-bar input::placeholder {
-  color: #94a3b8;
-}
+.search-bar input::placeholder { color: #94a3b8; }
 
 .search-bar svg {
   width: 18px;
@@ -85,7 +89,6 @@ header {
   flex-shrink: 0;
 }
 
-/* Utilitare dreapta (Cont, Favorite, Coș) */
 .nav-options {
   display: flex;
   list-style: none;
@@ -97,46 +100,42 @@ header {
   display: flex;
   align-items: center;
   text-decoration: none;
+  padding: 4px;
+  border-radius: 6px;
+  transition: background-color 0.2s;
 }
+
+.nav-options a:hover { background-color: #1d64d820; }
 
 .nav-options svg {
   width: 26px;
   height: 26px;
-  fill: #1b2a4a;
-  transition: fill 0.2s;
+  fill: var(--navy);
 }
 
-.nav-options svg:hover {
-  border-radius: 6px;
-  background-color: rgba(29, 100, 216, 0.2);
-  padding: 2px;
-}
-
-/* Rândul 2: Banda albastră pe 100% din ecran */
+/* Rândul 2: navbar secundar */
 .alt-nav {
   width: 100%;
-  background-color: #1d64d8;
+  background: linear-gradient(105deg, #1b2a4a, #743ba4 62%, #0088e6);
 }
 
 .alt-container {
-  max-width: 1200px;
+  width: calc(100% - 40px);
+  max-width: var(--container-width);
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.alt-options {
-  display: flex;
-  align-items: center;
-}
+.alt-options { display: flex; align-items: stretch; }
 
 .option-1 button {
   all: unset;
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 3px;
+  gap: 8px;
 }
 
 .alt-option {
@@ -144,90 +143,194 @@ header {
   align-items: center;
   gap: 8px;
   padding: 12px 20px;
-  color: #ffffff;
+  color: white;
   text-decoration: none;
   font-size: 14px;
   font-weight: 600;
+  white-space: nowrap;
   transition: opacity 0.2s;
 }
 
-.alt-option:hover {
-  opacity: 0.9;
-}
+.alt-option:hover { opacity: 0.9; }
+.option-1 { background-color: var(--navy); width: var(--sidebar-width); }
+.option-2 { background-color: #d93848; }
+.option-3 { background-color: #f95738; }
+.option-4 { background-color: #00a896; border-radius: 0 6px 6px 0; }
+.options-lines { width: 18px; height: 18px; fill: white; }
 
-/* Culorile unice ale fiecărui tab */
-.option-1 {
-  background-color: #1b2a4a; /* Navy (Produse) */
-  padding-right: 65px;
-  border-top-left-radius: 6px;
-}
-
-.option-2 {
-  background-color: #d93848; /* Roșu */
-}
-
-.option-3 {
-  background-color: #f95738; /* Portocaliu */
-}
-
-.option-4 {
-  background-color: #00a896; /* Turcoaz */
-  border-top-right-radius: 6px;
-}
-
-.options-lines {
-  width: 18px;
-  height: 18px;
-  fill: #ffffff;
-}
-
-/* Link-uri dreapta (Despre noi, Contact) */
 .contact-options {
   display: flex;
   gap: 20px;
-  padding-right: 10px;
+  padding-left: 15px;
+  white-space: nowrap;
 }
 
 .contact-options a {
-  color: #ffffff;
+  color: white;
   text-decoration: none;
   font-size: 14px;
   font-weight: 500;
   opacity: 0.9;
 }
 
-.contact-options a:hover {
-  opacity: 1;
-  text-decoration: underline;
-}
+.contact-options a:hover { opacity: 1; text-decoration: underline; }
 
+/* Layout principal: categorii + oferte */
 .second-items {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  width: calc(100% - 40px);
+  max-width: var(--container-width);
+  margin: 20px auto;
 }
 
+.cateogries-products {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+/* Meniu categorii */
 .items-opions {
   display: flex;
-  width: fit-content;
-  position: absolute;
-  list-style: none;
   flex-direction: column;
-  justify-content: center;
-  background-color: rgb(236, 235, 235);
+  flex-shrink: 0;
+  width: var(--sidebar-width);
+  list-style: none;
+  background-color: white;
+  border-radius: 8px;
   padding: 10px;
-  gap: 10px;
-  top: 102px;
-  left: 360px;
+  box-shadow: 0 2px 8px #00000015;
 }
 
 .items-opions > li {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
 }
+
+.items-opions > li:hover { background-color: #e8eef7; }
 
 .items-opions > li > svg {
   width: 20px;
   height: 20px;
+  flex-shrink: 0;
+}
+
+/* Zona de oferte */
+.ofert-products {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+}
+
+.cards-ofert {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 16px;
+}
+
+/* Card individual */
+.card-ofert {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  min-height: 300px;
+  padding: 28px;
+  background-color: #edf1f7;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.card-ofert .text {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.card-ofert h2 {
+  font-size: clamp(20px, 2.2vw, 32px);
+  line-height: 1.2;
+  overflow-wrap: break-word;
+}
+
+.card-ofert p { font-size: 15px; }
+
+.card-ofert img {
+  width: 40%;
+  min-width: 0;
+  max-height: 230px;
+  object-fit: contain;
+}
+
+.card-ofert button {
+  border: none;
+  background-color: var(--blue);
+  color: white;
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font: inherit;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.card-ofert button:hover { background-color: #164fae; }
+
+/* Săgeți – momentan doar vizuale */
+.arrow-left,
+.arrow-right {
+  position: absolute;
+  top: 150px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 1;
+}
+
+.arrow-left { left: 4px; }
+.arrow-right { right: 4px; }
+
+.arrow-left svg,
+.arrow-right svg { display: block; width: 20px; height: 25px; }
+
+.offer-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.offer-dots span {
+  width: 9px;
+  height: 9px;
+  background-color: #cbd5e1;
+  border-radius: 50%;
+}
+
+.offer-dots .active { background-color: var(--blue); }
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .alt-container { overflow-x: auto; }
+  .cards-ofert { grid-template-columns: 1fr; }
+  .arrow-left, .arrow-right { display: none; }
+}
+
+@media (max-width: 600px) {
+  .nav-container { flex-wrap: wrap; gap: 12px; }
+  .logo { width: 135px; }
+  .nav-options { gap: 8px; }
+  .search-bar { order: 3; flex-basis: 100%; max-width: none; }
+  .alt-option { padding: 10px 14px; }
+  .option-1 { width: auto; }
+  .cateogries-products { flex-direction: column; }
+  .items-opions, .ofert-products { width: 100%; }
+  .card-ofert { padding: 20px; min-height: 220px; }
+  .card-ofert h2 { font-size: 21px; }
 }
