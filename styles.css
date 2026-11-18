@@ -223,17 +223,15 @@ header {
 .ofert-products {
   flex: 1;
   min-width: 0;
-  position: relative;
 }
 
 .cards-ofert {
-  display: grid;
-  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-  gap: 16px;
+  width: 100%;
 }
 
 /* Card individual */
 .card-ofert {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -283,43 +281,9 @@ header {
 
 .card-ofert button:hover { background-color: #164fae; }
 
-/* Săgeți – momentan doar vizuale */
-.arrow-left,
-.arrow-right {
-  position: absolute;
-  top: 150px;
-  transform: translateY(-50%);
-  cursor: pointer;
-  z-index: 1;
-}
-
-.arrow-left { left: 4px; }
-.arrow-right { right: 4px; }
-
-.arrow-left svg,
-.arrow-right svg { display: block; width: 20px; height: 25px; }
-
-.offer-dots {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin-top: 14px;
-}
-
-.offer-dots span {
-  width: 9px;
-  height: 9px;
-  background-color: #cbd5e1;
-  border-radius: 50%;
-}
-
-.offer-dots .active { background-color: var(--blue); }
-
 /* Responsive */
 @media (max-width: 1000px) {
   .alt-container { overflow-x: auto; }
-  .cards-ofert { grid-template-columns: 1fr; }
-  .arrow-left, .arrow-right { display: none; }
 }
 
 @media (max-width: 600px) {
